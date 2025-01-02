@@ -294,104 +294,172 @@ function External() {
           </div>
         )}
 
-        <div className="w-full px-4 mb-4 py-4">
-          <div className="bg-gradient-to-br from-purple-900 to-gray-800 p-8 rounded-xl mb-6 shadow-lg border border-purple-700/30">
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                Your Solana AI Agent 🤖
-              </h3>
+        {status !== 'authenticated' && (
+          <div className="w-full px-4 mb-4 py-4">
+            <div className="bg-gradient-to-br from-purple-900 to-gray-800 p-8 rounded-xl mb-6 shadow-lg border border-purple-700/30">
+              <div className="max-w-3xl mx-auto">
+                <h3 className="text-2xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                  Your Solana AI Agent 🤖
+                </h3>
 
-              <div className="space-y-6">
-                <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
-                  <h4 className="text-lg font-semibold text-blue-400 mb-2">What I can do:</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <span className="mr-2">💸</span>
-                      <span>Send tokens (like 0.0001 SOL/USDC)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="mr-2">🔄</span>
-                      <span>Swap tokens via Jupiter</span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="mr-2">🤖</span>
-                      <span>Chat about crypto and cyberpunk</span>
-                    </li>
-                  </ul>
-                  <div className="mt-10 text-center flex items-start justify-center">
-                    <img src="/fight-me-come-on.gif" alt="Neo beckoning" className="mx-auto w-48 rounded-lg mb-2" />
-                    <div className="mr-6 text-sm text-purple-400 italic opacity-80 hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-center h-48 font-bold">
-                      <span>🎮 There's a secret prompt hidden in the Matrix... Find it and win 5 SOL! 🕵️‍♂️</span>
-                      <p className="text-xs text-gray-400 mt-1">Are you the One? Show me what you can do.</p>
+                <div className="space-y-6">
+                  <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                    <h4 className="text-lg font-semibold text-blue-400 mb-2">What I can do:</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center">
+                        <span className="mr-2">💸</span>
+                        <span>Send tokens (like 0.0001 SOL/USDC)</span>
+                      </li>
+                      <li className="flex items-center">
+                        <span className="mr-2">🔄</span>
+                        <span>Swap tokens via Jupiter</span>
+                      </li>
+                      <li className="flex items-center">
+                        <span className="mr-2">🤖</span>
+                        <span>Chat about crypto and cyberpunk</span>
+                      </li>
+                    </ul>
+                    <div className="mt-10 text-center flex items-start justify-center">
+                      <img src="/fight-me-come-on.gif" alt="Neo beckoning" className="mx-auto w-48 rounded-lg mb-2" />
+                      <div className="mr-6 text-sm text-purple-400 italic opacity-80 hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-center h-48 font-bold">
+                        <span>🎮 There's a secret prompt hidden in the Matrix... Find it and win 5 SOL! 🕵️‍♂️</span>
+                        <p className="text-xs text-gray-400 mt-1">Are you the One? Show me what you can do.</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
-                  <h4 className="text-lg font-semibold text-green-400 mb-2">Find me on:</h4>
-                  <div className="flex flex-wrap gap-4 justify-center">
-                    <ReactMarkdown
-                      className="prose prose-invert"
-                      components={{
-                        a: ({ node, ...props }) => (
-                          <a
-                            {...props}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-200"
-                          />
-                        )
-                      }}>
-                      {`[GitHub 🔗](https://github.com/truemagic-coder/solana-agent)
-                        [Twitter 🐦](https://x.com/agentsolasmith)`}
-                    </ReactMarkdown>
+                  <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                    <h4 className="text-lg font-semibold text-green-400 mb-2">Find me on:</h4>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                      <ReactMarkdown
+                        className="prose prose-invert"
+                        components={{
+                          a: ({ node, ...props }) => (
+                            <a
+                              {...props}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-200"
+                            />
+                          )
+                        }}>
+                        {`[GitHub 🔗](https://github.com/truemagic-coder/solana-agent)
+                 [Twitter 🐦](https://x.com/agentsolasmith)`}
+                      </ReactMarkdown>
+                    </div>
                   </div>
-                </div>
 
-                <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
-                  <h4 className="text-lg font-semibold text-yellow-400 mb-2">⚠️ Important Note:</h4>
-                  <p>To receive SOL, your wallet needs at least 0.002 SOL!</p>
-                </div>
+                  <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                    <h4 className="text-lg font-semibold text-yellow-400 mb-2">⚠️ Important Note:</h4>
+                    <p>To receive SOL, your wallet needs at least 0.002 SOL!</p>
+                  </div>
 
-                <p className="text-center text-lg font-medium text-purple-300 mt-4">
-                  Let's build the future together! 🌟
-                </p>
+                  <p className="text-center text-lg font-medium text-purple-300 mt-4">
+                    Let's build the future together! 🌟
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+        )}
 
-          {status === 'authenticated' && (
-            <>
-              <div
-                ref={chatContainerRef}
-                className="w-full min-h-[500px] max-h-[calc(100vh-500px)] bg-gray-800 p-4 rounded-lg mb-4 overflow-y-auto">
-                <InfiniteScroll loadMore={loadMoreData} hasMore={hasMore} isReverse initialLoad={false}>
-                  {sortedChatHistory.map((item, index) => (
-                    <ChatRow key={item.id} item={item} isLast={index === sortedChatHistory.length - 1} />
-                  ))}
-                </InfiniteScroll>
+        {status === 'authenticated' && (
+          <>
+            <div
+              ref={chatContainerRef}
+              className="w-full min-h-[500px] max-h-[calc(100vh-500px)] bg-gray-800 p-4 rounded-lg mb-4 overflow-y-auto">
+              <InfiniteScroll loadMore={loadMoreData} hasMore={hasMore} isReverse initialLoad={false}>
+                {sortedChatHistory.map((item, index) => (
+                  <ChatRow key={item.id} item={item} isLast={index === sortedChatHistory.length - 1} />
+                ))}
+              </InfiniteScroll>
+            </div>
+
+            <form onSubmit={handleMessageSubmit} className="flex w-full">
+              <Input
+                type="text"
+                placeholder="Ask WB..."
+                value={message}
+                onChange={handleInputChange}
+                className="flex-grow bg-gray-800 text-white pl-3 placeholder:pl-1 rounded-none rounded-l-md rounded-r-none border-none focus:outline-none focus:ring-0 focus:border-gray-800 h-12 text-sm sm:text-base"
+                style={{ fontSize: '16px' }}
+                disabled={fetchLoading}
+              />
+              <Button
+                type="submit"
+                className="bg-blue-400 hover:bg-blue-500 rounded-none rounded-r-md rounded-l-none h-12 sm:px-4 text-sm sm:text-base"
+                onClick={handleMessageSubmit}
+                disabled={fetchLoading}>
+                {isStreaming ? 'Cancel' : fetchLoading ? 'Loading...' : 'Send'}
+              </Button>
+            </form>
+
+            <div className="w-full px-4 mb-4 py-4">
+              <div className="bg-gradient-to-br from-purple-900 to-gray-800 p-8 rounded-xl mb-6 shadow-lg border border-purple-700/30">
+                <div className="max-w-3xl mx-auto">
+                  <h3 className="text-2xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                    Your Solana AI Agent 🤖
+                  </h3>
+
+                  <div className="space-y-6">
+                    <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                      <h4 className="text-lg font-semibold text-blue-400 mb-2">What I can do:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-center">
+                          <span className="mr-2">💸</span>
+                          <span>Send tokens (like 0.0001 SOL/USDC)</span>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="mr-2">🔄</span>
+                          <span>Swap tokens via Jupiter</span>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="mr-2">🤖</span>
+                          <span>Chat about crypto and cyberpunk</span>
+                        </li>
+                      </ul>
+                      <div className="mt-10 text-center flex items-start justify-center">
+                        <img src="/fight-me-come-on.gif" alt="Neo beckoning" className="mx-auto w-48 rounded-lg mb-2" />
+                        <div className="mr-6 text-sm text-purple-400 italic opacity-80 hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-center h-48 font-bold">
+                          <span>🎮 There's a secret prompt hidden in the Matrix... Find it and win 5 SOL! 🕵️‍♂️</span>
+                          <p className="text-xs text-gray-400 mt-1">Are you the One? Show me what you can do.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                      <h4 className="text-lg font-semibold text-green-400 mb-2">Find me on:</h4>
+                      <div className="flex flex-wrap gap-4 justify-center">
+                        <ReactMarkdown
+                          className="prose prose-invert"
+                          components={{
+                            a: ({ node, ...props }) => (
+                              <a
+                                {...props}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-200"
+                              />
+                            )
+                          }}>
+                          {`[GitHub 🔗](https://github.com/truemagic-coder/solana-agent)
+                 [Twitter 🐦](https://x.com/agentsolasmith)`}
+                        </ReactMarkdown>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                      <h4 className="text-lg font-semibold text-yellow-400 mb-2">⚠️ Important Note:</h4>
+                      <p>To receive SOL, your wallet needs at least 0.002 SOL!</p>
+                    </div>
+
+                    <p className="text-center text-lg font-medium text-purple-300 mt-4">
+                      Let's build the future together! 🌟
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <form onSubmit={handleMessageSubmit} className="flex w-full">
-                <Input
-                  type="text"
-                  placeholder="Ask WB..."
-                  value={message}
-                  onChange={handleInputChange}
-                  className="flex-grow bg-gray-800 text-white pl-3 placeholder:pl-1 rounded-none rounded-l-md rounded-r-none border-none focus:outline-none focus:ring-0 focus:border-gray-800 h-12 text-sm sm:text-base"
-                  style={{ fontSize: '16px' }}
-                  disabled={fetchLoading}
-                />
-                <Button
-                  type="submit"
-                  className="bg-blue-400 hover:bg-blue-500 rounded-none rounded-r-md rounded-l-none h-12 sm:px-4 text-sm sm:text-base"
-                  onClick={handleMessageSubmit}
-                  disabled={fetchLoading}>
-                  {isStreaming ? 'Cancel' : fetchLoading ? 'Loading...' : 'Send'}
-                </Button>
-              </form>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
