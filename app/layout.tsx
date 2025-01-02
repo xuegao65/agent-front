@@ -9,15 +9,15 @@ import '../styles/css.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-sans'
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Solana Agent</title>
-        <meta name="description" content="Your Solana Agent!" />
+        <title>Agent SolaSmith</title>
+        <meta name="description" content="Your Agent SolaSmith!" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         <meta httpEquiv="content-language" content="en" />
@@ -25,11 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#111827" />
         <meta name="theme-color" content="#111827" />
       </head>
-      <body className={cn(
-        'min-h-screen bg-background font-sans antialiased',
-        inter.variable,
-      )}
-      >
+      <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
         <main>{children}</main>
       </body>
     </html>
